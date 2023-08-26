@@ -1,0 +1,81 @@
+
+<form>
+
+//Раздел плоскостопие
+    <h3>Плоскостопие</h3>
+    <input type="radio" name="flatFoot" id="flatFootNo" value="no">
+    <label for="flatFootNo">Hет</label><br>
+
+    <input type="radio" name="flatFoot" id="flatFoot1" value="1">
+    <label for="flatFoot1">1 степени</label><br>
+
+    <input type="radio" name="flatFoot" id="flatFoot2" value="2">
+    <label for="flatFoot2">2 степени</label><br>
+
+    <input type="radio" name="flatFoot" id="flatFoot3" value="3">
+    <label for="flatFoot3">3 степени</label><br>
+
+
+// Заваливание стоп
+    <h3>Заваливание стоп</h3>
+    <input type="radio" name="footAngle" id="footAngleNo" value="no">
+    <label for="footAngleNo">Hет</label><br>
+
+    <input type="radio" name="footAngle" id="footAngleIn" value="in">
+    <label for="footAngleIn">Внутрь</label><br>
+
+    <input type="radio" name="footAngle" id="footAngleOut" value="out">
+    <label for="footAngleOut">Наружу</label><br>
+
+
+
+
+    <button type="button" onclick="proceedData()">Submit</button>
+
+
+
+    <p id='results'></p>
+</form>
+
+
+<script>
+    
+
+    function proceedData() {
+        let flatFootResult;
+        let footAngleResult;
+
+        //get DOM elements
+        const flatFoot = document.getElementsByName('flatFoot');
+        const footAngle = document.getElementsByName('footAngle');
+
+        const resultsOut = document.getElementById('results');
+
+        // get Value from elements
+        flatFoot.forEach((element => {
+            if(element.checked) {
+                flatFootResult = element.value;
+            };
+        }));
+
+        footAngle.forEach((element => {
+            if(element.checked) {
+                footAngleResult = element.value;
+            }
+        }));
+
+
+
+
+
+        resultsOut.innerHTML = `Now we can print result ${flatFootResult} and ${footAngleResult}`;
+
+
+        console.log(`arr success and its ${flatFootResult}`);
+    };
+
+
+
+
+
+</script>
