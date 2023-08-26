@@ -1,10 +1,10 @@
 <head>
     <link rel="stylesheet" href="index.css">
+
 </head>
 
 <body>
-
-
+    <script src="textdata.js"></script>
 <form>
 <!-- Раздел плоскостопие -->
     <h3>Плоскостопие</h3>
@@ -36,16 +36,14 @@
 
 
     <button type="button" onclick="proceedData()">Submit</button>
-
-
-
     <p id='results'></p>
 </form>
 
 
+
+
 <script>
     
-
     function proceedData() {
         let flatFootResult;
         let footAngleResult;
@@ -56,10 +54,18 @@
 
         const resultsOut = document.getElementById('results');
 
-        // get Value from elements
+        // get Value from elements and assign text from textdata.js to it
         flatFoot.forEach((element => {
             if(element.checked) {
-                flatFootResult = element.value;
+                switch(element.value) {
+                    case "no":
+                        flatFootResult = flatFootResultNo;
+                        break;
+                    default:
+                        flatFootResult = element.value;
+                        break;
+                    };
+                
             };
         }));
 
@@ -69,21 +75,21 @@
             }
         }));
 
+        
+        
 
 
-
-
-        resultsOut.innerHTML = `Тут мы выдаём результат в виде текста. Под каждое значение можно написать длинные текст. Плоскостопие ${flatFootResult}й степени.<br>
+        // result into text
+        resultsOut.innerHTML = `Тут мы выдаём результат в виде текста. Под каждое значение можно написать длинные текст.<br> ${flatFootResult}<br>
         А нога смотрит ${footAngleResult}`;
 
-
-        console.log(`arr success and its ${flatFootResult}`);
     };
 
 
 
 
 
-
 </script>
+
+
 </body>
